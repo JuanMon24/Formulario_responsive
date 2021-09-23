@@ -55,6 +55,17 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
+.form__input:not(:placeholder-shown){
+    color: #4d4646;
+}
+
+.form__input:focus + .form__label,
+.form__input:not(:placeholder-shown) + .form__label{
+    transform: translateY(-12px) scale(.7);
+    transform-origin: left top;
+    color: #3866f2;
+}
+
 .form__label{
     color: var(--color);
     cursor:pointer;
@@ -64,4 +75,38 @@ body{
     transform: translate(10px);
     transition: transform .5s,color .3s;;
 
+}
+
+.form__submit{
+    background: #3866f2;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    padding: .8em 0em;
+    border: none;
+    border-radius: .5em;
+}
+
+.form__line{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 102%;
+    height: 1px;
+    background-color: #3866f2;
+    transform: scale(0);
+    transform: left bottom;
+    transition: transform .4s;
+}
+
+.form__input:focus ~ .form__line,
+.form__input:not(:placeholder-shown) ~ .form__line{
+    transform: scale(1);
+}
+
+@media(max-width:425px){
+    .form__title{
+        font-size: 1.8rem;
+    }
 }
